@@ -3,6 +3,7 @@ extends KinematicBody2D
 # credit goes to https://kidscancode.org/godot_recipes/2d/car_steering/
 
 onready var driver := $Driver
+onready var camera := $Camera2D
 
 var wheel_base: float = 200
 var steering_angle: float = 30
@@ -31,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	camera.adjust_zoom_by_velocity(velocity)
 
 	var collided := false
 	for index in get_slide_count():
