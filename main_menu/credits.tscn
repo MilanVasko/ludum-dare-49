@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://main_menu/about.gd" type="Script" id=1]
+[ext_resource path="res://main_menu/credits.gd" type="Script" id=1]
 
-[node name="About" type="Control"]
+[node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -19,14 +19,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
 margin_bottom = -70.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer"]
+margin_right = 492.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "This game was made by Milan Vasko in 48 hours for the Ludum Dare 49 competition."
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Back" type="Button" parent="Panel"]
 anchor_top = 1.0

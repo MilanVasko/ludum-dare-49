@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main_menu/story.gd" type="Script" id=1]
+
+[node name="Story" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -70.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer"]
+margin_right = 492.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "All you want to do is to watch your favorite movie tonight. Since you don't have internet at home, you need to download it on your phone first. Luckily, that van looks like it has a signal!
+
+Oh wait, where does it go? The download is not finished yet! Chase the van until your favorite movie finished downloading, or die trying.
+"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -60.0
+margin_right = -10.0
+margin_bottom = -10.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_back_pressed"]

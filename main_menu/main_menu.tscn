@@ -31,9 +31,9 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="Panel/VBoxContainer"]
-margin_top = 22.0
+margin_top = 11.0
 margin_right = 307.0
-margin_bottom = 62.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_vertical = 6
 text = "Play"
@@ -41,22 +41,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="About" type="Button" parent="Panel/VBoxContainer"]
-margin_top = 110.0
+[node name="Story" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 77.0
 margin_right = 307.0
-margin_bottom = 150.0
+margin_bottom = 117.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_vertical = 6
-text = "About"
+text = "Story"
+
+[node name="Credits" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 143.0
+margin_right = 307.0
+margin_bottom = 183.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_vertical = 6
+text = "Credits"
 
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
-margin_top = 198.0
+margin_top = 209.0
 margin_right = 307.0
-margin_bottom = 238.0
+margin_bottom = 249.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_vertical = 6
 text = "Quit"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Story" to="." method="_on_story_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
