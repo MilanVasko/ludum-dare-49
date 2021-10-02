@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://target/car.png" type="Texture" id=1]
 [ext_resource path="res://target/car.gd" type="Script" id=2]
 [ext_resource path="res://target/wifi_zone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://target/shooter.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 126.375
@@ -23,6 +24,9 @@ texture = ExtResource( 1 )
 position = Vector2( -22, 0 )
 rotation = 1.57079
 shape = SubResource( 1 )
+
+[node name="Shooter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1.88776, 81.1732 )
 
 [node name="WifiZone" parent="." instance=ExtResource( 3 )]
 

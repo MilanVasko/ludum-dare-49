@@ -11,7 +11,9 @@
 radius = 110.626
 height = 256.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -40,5 +42,6 @@ position = Vector2( 58.863, -30.272 )
 position = Vector2( 58.8627, -30.2723 )
 
 [connection signal="car_collided" from="." to="Driver" method="_on_player_car_collided"]
+[connection signal="got_shot" from="." to="Driver" method="_on_player_got_shot"]
 [connection signal="immortality_ended" from="Driver" to="Sprite" method="_on_driver_immortality_ended"]
 [connection signal="immortality_started" from="Driver" to="Sprite" method="_on_driver_immortality_started"]

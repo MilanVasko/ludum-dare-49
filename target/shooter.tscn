@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://target/shooter.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://target/gun.gd" type="Script" id=3]
+[ext_resource path="res://white_pixel.png" type="Texture" id=4]
+[ext_resource path="res://light.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1044.3
+
+[node name="Shooter" type="Node2D"]
+script = ExtResource( 1 )
+aiming_speed = 2.0
+min_firing_delay = 1.0
+max_firing_delay = 3.0
+
+[node name="Gun" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 1000, 0 )
+script = ExtResource( 3 )
+bullet_path_visible_seconds = 0.1
+
+[node name="Sprite" type="Sprite" parent="Gun"]
+position = Vector2( 100, 0 )
+scale = Vector2( 4, 1 )
+texture = ExtResource( 2 )
+
+[node name="BulletPath" type="Sprite" parent="Gun"]
+visible = false
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( 500, 0 )
+scale = Vector2( 1000, 6 )
+texture = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="Gun"]
+visible = false
+position = Vector2( 204.138, 3 )
+texture = ExtResource( 5 )
+texture_scale = 1.5
+color = Color( 1, 1, 0, 1 )
+shadow_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

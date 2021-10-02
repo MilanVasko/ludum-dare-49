@@ -21,6 +21,7 @@ var velocity := Vector2.ZERO
 var steer_direction := 0.0
 
 signal car_collided
+signal got_shot
 
 func _on_health_picked_up(health_amount: int) -> bool:
 	return driver._on_health_picked_up(health_amount)
@@ -49,6 +50,9 @@ func _physics_process(delta: float) -> void:
 # so RigidBody2D needs to notify us (after the traffic car is blown up)
 func collided_with_blown_up_traffic_car(_traffic_car: RigidBody2D) -> void:
 	emit_signal("car_collided")
+
+func do_get_shot() -> void:
+	emit_signal("got_shot")
 
 func get_input() -> void:
 	var turn := Input.get_action_strength("steer_right") - Input.get_action_strength("steer_left")

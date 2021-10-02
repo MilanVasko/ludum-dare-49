@@ -6,4 +6,5 @@
 script = ExtResource( 1 )
 start_health = 100
 damage_on_collision = 10
+damage_on_shot = 10
 seconds_to_be_immortal = 1.0
