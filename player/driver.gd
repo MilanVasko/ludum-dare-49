@@ -21,6 +21,10 @@ func _process(delta: float) -> void:
 		if immortality_seconds_remaining <= 0.0:
 			emit_signal("immortality_ended")
 
+func _on_health_picked_up(health_amount: int) -> void:
+	health += health_amount
+	get_tree().call_group("player_health_subscriber", "_on_player_health_changed", health, start_health)
+
 func _on_player_car_collided() -> void:
 	if immortality_seconds_remaining > 0.0:
 		return

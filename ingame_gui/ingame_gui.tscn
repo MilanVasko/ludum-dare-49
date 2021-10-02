@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ingame_gui/ingame_gui.gd" type="Script" id=1]
-[ext_resource path="res://ingame_gui/heart.png" type="Texture" id=2]
+[ext_resource path="res://pickups/health/heart.png" type="Texture" id=2]
 
 [node name="IngameGUI" type="Control" groups=[
 "download_state_subscriber",
@@ -147,7 +147,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = 110.0
 text = "You died.
-No movie for you anymore :("
+No movies for you anymore :("
 align = 1
 valign = 1
 autowrap = true
@@ -182,6 +182,9 @@ margin_right = 50.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Health"]
 anchor_right = 1.0

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 # credit goes to https://kidscancode.org/godot_recipes/2d/car_steering/
 
+onready var driver := $Driver
+
 var wheel_base: float = 200
 var steering_angle: float = 20
 var engine_power: float = 7000
@@ -18,6 +20,9 @@ var velocity := Vector2.ZERO
 var steer_direction := 0.0
 
 signal car_collided
+
+func _on_health_picked_up(health_amount: int) -> void:
+	driver._on_health_picked_up(health_amount)
 
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
