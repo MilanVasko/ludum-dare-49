@@ -11,5 +11,5 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	offset += speed * delta
 
-func _on_car_collided_with_player():
+func _on_car_blown_up():
 	set_physics_process(false)

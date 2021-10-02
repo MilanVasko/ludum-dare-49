@@ -45,6 +45,9 @@ func _physics_process(delta: float) -> void:
 	if collided:
 		emit_signal("car_collided")
 
+func collided_with_blown_up_traffic_car(_traffic_car: RigidBody2D) -> void:
+	emit_signal("car_collided")
+
 func get_input() -> void:
 	var turn := Input.get_action_strength("steer_right") - Input.get_action_strength("steer_left")
 	steer_direction = turn * deg2rad(steering_angle)
