@@ -45,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	if collided:
 		emit_signal("car_collided")
 
+# this is needed because Kinematic body apparently can't detect RigidBody2D,
+# so RigidBody2D needs to notify us (after the traffic car is blown up)
 func collided_with_blown_up_traffic_car(_traffic_car: RigidBody2D) -> void:
 	emit_signal("car_collided")
 

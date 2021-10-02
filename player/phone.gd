@@ -4,8 +4,8 @@ export(float) var download_time_seconds: float
 export(float) var seconds_to_abort: float
 
 var current_download_time_seconds := 0.0
-var current_abort_seconds = 0.0
-var about_to_abort := false
+onready var current_abort_seconds = seconds_to_abort
+var about_to_abort := true
 
 func _process(delta: float) -> void:
 	if about_to_abort:
