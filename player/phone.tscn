@@ -5,10 +5,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.2011
 
-[node name="Phone" type="Area2D" groups=[
-"phone",
-]]
+[node name="Phone" type="Area2D"]
 script = ExtResource( 1 )
+download_time_seconds = 60.0
+seconds_to_abort = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

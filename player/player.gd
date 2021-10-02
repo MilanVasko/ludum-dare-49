@@ -17,6 +17,8 @@ var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction := 0.0
 
+signal car_collided
+
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
 	get_input()
@@ -25,11 +27,16 @@ func _physics_process(delta: float) -> void:
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 
+	var collided := false
 	for index in get_slide_count():
 		var collision := get_slide_collision(index)
+		collided = true
 		var collider := collision.collider
+		
 		if collider.has_method("_on_player_collided"):
 			collider._on_player_collided(collision)
+	if collided:
+		emit_signal("car_collided")
 
 func get_input() -> void:
 	var turn := Input.get_action_strength("steer_right") - Input.get_action_strength("steer_left")

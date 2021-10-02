@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://player/driver.gd" type="Script" id=1]
+
+[node name="Driver" type="Node2D"]
+script = ExtResource( 1 )
+start_health = 100
+damage_on_collision = 10
+seconds_to_be_immortal = 1.0

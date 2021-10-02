@@ -8,18 +8,19 @@
 [ext_resource path="res://ingame_gui/ingame_gui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ingame/ingame.gd" type="Script" id=7]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -3806.7, -2280.73, 0, 0, 0, 0, 3736.63, -2026.75, 0, 0, 0, 0, 3800.13, 3014.84, 0, 0, 0, 0, -3400.33, 2722.76, 0, 0, 0, 0, -3806.7, -2280.73 )
 }
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2086.58, -2378.09, 0, 0, 0, 0, 2328.75, -723.209, 0, 0, 0, 0, 2448.87, 738.44, 0, 0, 0, 0, 141.472, 726.454, 0, 0, 0, 0, 135.479, -1143.43, 0, 0, 0, 0, 309.283, -2497.9, 0, 0, 0, 0, 2086.58, -2378.09 )
 }
 
 [node name="Ingame" type="Node2D" groups=[
 "download_state_subscriber",
+"player_health_subscriber",
 ]]
 script = ExtResource( 7 )
 
@@ -67,19 +68,19 @@ position = Vector2( 1256.73, 1994.59 )
 position = Vector2( -1153.46, 1359.12 )
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 script = ExtResource( 4 )
 min_spawn_distance = 500
 max_spawn_distance = 5000
 
 [node name="TargetPath" type="Path2D" parent="."]
 position = Vector2( -64.0725, 160.181 )
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 script = ExtResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="TargetPath"]
-position = Vector2( 259.535, 727.067 )
-rotation = -1.87194
+position = Vector2( 262.45, 727.082 )
+rotation = -1.88189
 offset = 5313.95
 lookahead = 500.0
 

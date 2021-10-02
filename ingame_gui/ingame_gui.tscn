@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ingame_gui/ingame_gui.gd" type="Script" id=1]
+[ext_resource path="res://ingame_gui/heart.png" type="Texture" id=2]
 
 [node name="IngameGUI" type="Control" groups=[
 "download_state_subscriber",
+"player_health_subscriber",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -125,5 +127,70 @@ margin_right = -50.0
 margin_bottom = -20.0
 text = "Retry"
 
+[node name="PlayerDied" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 200.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayerDied"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 110.0
+text = "You died.
+No movie for you anymore :("
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="PlayerDied"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = -70.0
+margin_right = -50.0
+margin_bottom = -20.0
+text = "Retry"
+
+[node name="Health" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart" type="TextureRect" parent="Health"]
+modulate = Color( 0.631373, 0, 0, 1 )
+anchor_bottom = 1.0
+margin_right = 50.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Health"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 55.0
+margin_bottom = 0.00723648
+text = "100"
+valign = 1
+
 [connection signal="pressed" from="DownloadFailed/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="DownloadSucceeded/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="PlayerDied/Retry" to="." method="_on_retry_pressed"]

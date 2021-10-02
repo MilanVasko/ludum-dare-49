@@ -5,10 +5,13 @@ onready var aborting_seconds_remaining := $Aborting/SecondsRemaining
 onready var download_progress_bar := $DownloadProgressBar
 onready var download_failed := $DownloadFailed
 onready var download_succeeded := $DownloadSucceeded
+onready var player_died := $PlayerDied
+onready var health_label := $Health/Label
 
-func _ready():
+func _ready() -> void:
 	download_failed.visible = false
 	download_succeeded.visible = false
+	player_died.visible = false
 
 func _on_download_resumed() -> void:
 	set_download_active(true)
@@ -34,6 +37,13 @@ func _on_download_finished() -> void:
 func _on_download_failed() -> void:
 	download_failed.visible = true
 
-func _on_retry_pressed():
+func _on_player_died() -> void:
+	player_died.visible = true
+	set_download_active(false)
+
+func _on_retry_pressed() -> void:
 	var err = get_tree().reload_current_scene()
 	assert(err == OK)
+
+func _on_player_health_changed(health: int, full_health: int) -> void:
+	health_label.text = str(health)

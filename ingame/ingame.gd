@@ -12,6 +12,9 @@ func _on_download_failed() -> void:
 func _on_download_finished() -> void:
 	pause()
 
+func _on_player_died() -> void:
+	pause()
+
 func pause() -> void:
 	Engine.time_scale = 0.0
 
