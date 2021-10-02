@@ -45,5 +45,5 @@ func _on_retry_pressed() -> void:
 	var err = get_tree().reload_current_scene()
 	assert(err == OK)
 
-func _on_player_health_changed(health: int, full_health: int) -> void:
+func _on_player_health_changed(health: int, _full_health: int) -> void:
 	health_label.text = str(health)
