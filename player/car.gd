@@ -5,7 +5,7 @@ extends KinematicBody2D
 onready var driver := $Driver
 
 var wheel_base: float = 200
-var steering_angle: float = 20
+var steering_angle: float = 30
 var engine_power: float = 7000
 var friction: float = -0.9
 var drag: float = -0.001
@@ -21,8 +21,8 @@ var steer_direction := 0.0
 
 signal car_collided
 
-func _on_health_picked_up(health_amount: int) -> void:
-	driver._on_health_picked_up(health_amount)
+func _on_health_picked_up(health_amount: int) -> bool:
+	return driver._on_health_picked_up(health_amount)
 
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 		var collision := get_slide_collision(index)
 		collided = true
 		var collider := collision.collider
-		
-		if collider.has_method("_on_player_collided"):
+
+		if collider != null && collider.has_method("_on_player_collided"):
 			collider._on_player_collided(collision)
 	if collided:
 		emit_signal("car_collided")

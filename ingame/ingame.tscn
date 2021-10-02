@@ -25,6 +25,11 @@ _data = {
 ]]
 script = ExtResource( 7 )
 
+[node name="PickupSpawner" parent="." instance=ExtResource( 8 )]
+min_spawn_seconds = 2.0
+max_spawn_seconds = 5.0
+target_node_path = NodePath("../TargetPath/PathFollow2D/Target")
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -327.759, 246.942 )
 rotation = -1.35451
@@ -67,11 +72,6 @@ position = Vector2( 1256.73, 1994.59 )
 
 [node name="Building6" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1153.46, 1359.12 )
-
-[node name="PickupSpawner" parent="." instance=ExtResource( 8 )]
-min_spawn_seconds = 2.0
-max_spawn_seconds = 5.0
-target_node_path = NodePath("../TargetPath/PathFollow2D/Target")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
