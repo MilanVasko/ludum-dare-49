@@ -9,6 +9,7 @@ onready var player_died := $PlayerDied
 onready var health_label := $Health/Label
 
 func _ready() -> void:
+	aborting_container.visible = true
 	download_failed.visible = false
 	download_succeeded.visible = false
 	player_died.visible = false

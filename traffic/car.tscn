@@ -8,6 +8,7 @@ radius = 120.803
 height = 246.417
 
 [node name="Car" type="RigidBody2D"]
+collision_layer = 3
 mode = 3
 script = ExtResource( 2 )
 player_impact_coefficient = 150.0
