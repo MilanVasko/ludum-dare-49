@@ -8,3 +8,4 @@ func _on_player_collided(collision: KinematicCollision2D) -> void:
 	mode = RigidBody2D.MODE_RIGID
 	apply_central_impulse(-collision.normal * player_impact_coefficient)
 	emit_signal("collided_with_player")
+	$Sprite.texture = preload("res://traffic/car_damaged.png")

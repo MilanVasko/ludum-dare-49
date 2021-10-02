@@ -10,7 +10,7 @@ height = 246.417
 [node name="Car" type="RigidBody2D"]
 mode = 3
 script = ExtResource( 2 )
-player_impact_coefficient = 200.0
+player_impact_coefficient = 150.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -26.9391 )
