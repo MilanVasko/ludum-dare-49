@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://building/building.tscn" type="PackedScene" id=2]
-[ext_resource path="res://target/target.tscn" type="PackedScene" id=3]
-[ext_resource path="res://target/path.gd" type="Script" id=4]
-[ext_resource path="res://ingame_gui/ingame_gui.tscn" type="PackedScene" id=5]
-[ext_resource path="res://traffic/path.gd" type="Script" id=6]
+[ext_resource path="res://target/target.tscn" type="PackedScene" id=2]
+[ext_resource path="res://building/building.tscn" type="PackedScene" id=3]
+[ext_resource path="res://traffic/path.gd" type="Script" id=4]
+[ext_resource path="res://target/path.gd" type="Script" id=5]
+[ext_resource path="res://ingame_gui/ingame_gui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ingame/ingame.gd" type="Script" id=7]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -17,61 +18,64 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2086.58, -2378.09, 0, 0, 0, 0, 2328.75, -723.209, 0, 0, 0, 0, 2448.87, 738.44, 0, 0, 0, 0, 141.472, 726.454, 0, 0, 0, 0, 135.479, -1143.43, 0, 0, 0, 0, 309.283, -2497.9, 0, 0, 0, 0, 2086.58, -2378.09 )
 }
 
-[node name="Main" type="Node2D"]
+[node name="Ingame" type="Node2D" groups=[
+"download_state_subscriber",
+]]
+script = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -327.759, 246.942 )
 rotation = -1.35451
 
-[node name="Building" parent="." instance=ExtResource( 2 )]
+[node name="Building" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1088.18, -144.741 )
 
-[node name="Building2" parent="." instance=ExtResource( 2 )]
+[node name="Building2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1175.33, -1479.86 )
 
-[node name="Building8" parent="." instance=ExtResource( 2 )]
+[node name="Building8" parent="." instance=ExtResource( 3 )]
 position = Vector2( -2496.05, -1454.46 )
 
-[node name="Building9" parent="." instance=ExtResource( 2 )]
+[node name="Building9" parent="." instance=ExtResource( 3 )]
 position = Vector2( -2477, -3657.77 )
 
-[node name="Building10" parent="." instance=ExtResource( 2 )]
+[node name="Building10" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1099.13, -3632.38 )
 
-[node name="Building11" parent="." instance=ExtResource( 2 )]
+[node name="Building11" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1135.93, -3632.38 )
 
-[node name="Building12" parent="." instance=ExtResource( 2 )]
+[node name="Building12" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2697.93, -3626.03 )
 
-[node name="Building13" parent="." instance=ExtResource( 2 )]
+[node name="Building13" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2742.38, -1333.82 )
 
-[node name="Building3" parent="." instance=ExtResource( 2 )]
+[node name="Building3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1084.95, -1334.6 )
 
-[node name="Building4" parent="." instance=ExtResource( 2 )]
+[node name="Building4" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1160.39, 121.228 )
 
-[node name="Building5" parent="." instance=ExtResource( 2 )]
+[node name="Building5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 7.32361, 1994.59 )
 
-[node name="Building7" parent="." instance=ExtResource( 2 )]
+[node name="Building7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1256.73, 1994.59 )
 
-[node name="Building6" parent="." instance=ExtResource( 2 )]
+[node name="Building6" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1153.46, 1359.12 )
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 2 )
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 min_spawn_distance = 500
 max_spawn_distance = 5000
 
 [node name="TargetPath" type="Path2D" parent="."]
 position = Vector2( -64.0725, 160.181 )
 curve = SubResource( 1 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="TargetPath"]
 position = Vector2( 259.535, 727.067 )
@@ -79,9 +83,9 @@ rotation = -1.87194
 offset = 5313.95
 lookahead = 500.0
 
-[node name="Target" parent="TargetPath/PathFollow2D" instance=ExtResource( 3 )]
+[node name="Target" parent="TargetPath/PathFollow2D" instance=ExtResource( 2 )]
 rotation = 1.5708
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="IngameGUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="IngameGUI" parent="CanvasLayer" instance=ExtResource( 6 )]
