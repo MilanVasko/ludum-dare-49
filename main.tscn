@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://building/building.tscn" type="PackedScene" id=2]
 [ext_resource path="res://target/target.tscn" type="PackedScene" id=3]
 [ext_resource path="res://target/path.gd" type="Script" id=4]
+[ext_resource path="res://ingame_gui/ingame_gui.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -13,6 +14,8 @@ _data = {
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -327.759, 246.942 )
+rotation = -1.35451
 
 [node name="Building" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1088.18, -144.741 )
@@ -41,9 +44,14 @@ curve = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 2484.82, -2462.62 )
-rotation = 1.81086
+position = Vector2( 415.835, 727.879 )
+rotation = -3.1364
+offset = 5313.95
 lookahead = 100.0
 
 [node name="Target" parent="Path2D/PathFollow2D" instance=ExtResource( 3 )]
 rotation = 1.5708
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="IngameGUI" parent="CanvasLayer" instance=ExtResource( 5 )]

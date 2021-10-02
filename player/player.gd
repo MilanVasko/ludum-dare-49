@@ -3,7 +3,7 @@ extends KinematicBody2D
 # credit goes to https://kidscancode.org/godot_recipes/2d/car_steering/
 
 var wheel_base: float = 200
-var steering_angle: float = 15
+var steering_angle: float = 20
 var engine_power: float = 7000
 var friction: float = -0.9
 var drag: float = -0.001
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 
 func get_input() -> void:
-	var turn = Input.get_action_strength("steer_right") - Input.get_action_strength("steer_left")
+	var turn := Input.get_action_strength("steer_right") - Input.get_action_strength("steer_left")
 	steer_direction = turn * deg2rad(steering_angle)
 	var forward_direction := Input.get_action_strength("accelerate") - Input.get_action_strength("brake")
 	var acceleration_speed := engine_power if forward_direction > 0.0 else braking
@@ -35,19 +35,19 @@ func get_input() -> void:
 func apply_friction() -> void:
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
-	var friction_force = velocity * friction
-	var drag_force = velocity * velocity.length() * drag
+	var friction_force := velocity * friction
+	var drag_force := velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
 
 func calculate_steering(delta: float) -> void:
-	var rear_wheel = position - transform.x * wheel_base / 2.0
-	var front_wheel = position + transform.x * wheel_base / 2.0
+	var rear_wheel := position - transform.x * wheel_base / 2.0
+	var front_wheel := position + transform.x * wheel_base / 2.0
 	rear_wheel += velocity * delta
 	front_wheel += velocity.rotated(steer_direction) * delta
-	var traction = traction_fast if velocity.length() > slip_speed else traction_slow
+	var traction := traction_fast if velocity.length() > slip_speed else traction_slow
 
-	var new_heading = (front_wheel - rear_wheel).normalized()
-	var d = new_heading.dot(velocity.normalized())
+	var new_heading := (front_wheel - rear_wheel).normalized()
+	var d := new_heading.dot(velocity.normalized())
 	if d > 0:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction * delta)
 	elif d < 0:
