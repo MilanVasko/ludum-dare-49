@@ -5,6 +5,11 @@
 
 [node name="PathFollow2D" type="PathFollow2D"]
 script = ExtResource( 2 )
+min_v_offset = -50.0
+max_v_offset = 50.0
+speed = 1000.0
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
 rotation = 1.5708
+
+[connection signal="collided_with_player" from="Car" to="." method="_on_car_collided_with_player"]

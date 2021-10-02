@@ -25,6 +25,12 @@ func _physics_process(delta: float) -> void:
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 
+	for index in get_slide_count():
+		var collision := get_slide_collision(index)
+		var collider := collision.collider
+		if collider.has_method("_on_player_collided"):
+			collider._on_player_collided(collision)
+
 func get_input() -> void:
 	var turn := Input.get_action_strength("steer_right") - Input.get_action_strength("steer_left")
 	steer_direction = turn * deg2rad(steering_angle)
