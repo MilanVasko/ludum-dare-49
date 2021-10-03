@@ -30,18 +30,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer"]
+[node name="Label" type="RichTextLabel" parent="Panel/ScrollContainer"]
 margin_right = 940.0
 margin_bottom = 460.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "This game was made by Milan Vasko in 48 hours for the Ludum Dare 49 competition."
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+bbcode_enabled = true
+bbcode_text = "This game was made by [color=gray]Milan Vasko[/color] in [color=gray]48 hours[/color] for the [color=gray]Ludum Dare[/color] 49 competition.
+
+Sounds used:
+- [url]https://opengameart.org/content/high-traffic-road-sounds[/url]
+- [url]https://opengameart.org/content/car-engine-loop-96khz-4s[/url]
+- [url]https://freesound.org/people/qubodup/sounds/185479/[/url]"
+text = "This game was made by Milan Vasko in 48 hours for the Ludum Dare 49 competition.
+
+Sounds used:
+- https://opengameart.org/content/high-traffic-road-sounds
+- https://opengameart.org/content/car-engine-loop-96khz-4s
+- https://freesound.org/people/qubodup/sounds/185479/"
 
 [node name="Back" type="Button" parent="Panel"]
 anchor_top = 1.0
