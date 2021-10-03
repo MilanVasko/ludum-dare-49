@@ -6,8 +6,8 @@ onready var driver := $Driver
 onready var camera := $Camera2D
 onready var audio_player := $AudioStreamPlayer2D
 
-var wheel_base: float = 200
-var steering_angle: float = 30
+var wheel_base: float = 250
+var steering_angle: float = 20
 var engine_power: float = 7000
 var friction: float = -0.9
 var drag: float = -0.001

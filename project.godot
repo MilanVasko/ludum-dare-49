@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum-dare- 49"
-run/main_scene="res://main_menu/main_menu.tscn"
+run/main_scene="res://ingame/ingame.tscn"
 config/icon="res://icon.png"
 
 [autoload]
