@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/car.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ingame/map/map.png" type="Texture" id=7]
 [ext_resource path="res://pickup_spawner/pickup_spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://traffic/sounds/traffic.ogg" type="AudioStream" id=9]
+[ext_resource path="res://main_spawner/main_spawner.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -78,66 +79,6 @@ texture = ExtResource( 7 )
 ]]
 pause_mode = 2
 script = ExtResource( 5 )
-
-[node name="PickupSpawner" parent="." instance=ExtResource( 8 )]
-min_spawn_seconds = 2.0
-max_spawn_seconds = 5.0
-target_node_path = NodePath("../TargetPath/Target")
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8443.83, -9628.23 )
-rotation = -1.35451
-
-[node name="TrafficPaths" type="Node2D" parent="."]
-
-[node name="TrafficPath2D2" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 1 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D3" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 2 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D4" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 3 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D5" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 4 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 5 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D6" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 6 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D7" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 7 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D8" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 8 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D9" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 9 )
-script = ExtResource( 4 )
-
-[node name="TrafficPath2D10" type="Path2D" parent="TrafficPaths"]
-curve = SubResource( 10 )
-script = ExtResource( 4 )
-
-[node name="TargetPath" type="Path2D" parent="."]
-position = Vector2( -64.0725, 160.181 )
-curve = SubResource( 11 )
-
-[node name="Target" parent="TargetPath" instance=ExtResource( 2 )]
-position = Vector2( 262.45, 727.082 )
-rotation = 1.5708
-path_path = NodePath("..")
 
 [node name="Buildings" type="Node2D" parent="."]
 
@@ -416,6 +357,70 @@ rotation = -0.0392554
 [node name="Building69" parent="Buildings" instance=ExtResource( 3 )]
 position = Vector2( 15277.8, 6782.12 )
 rotation = -0.0392554
+
+[node name="MainSpawner" parent="." instance=ExtResource( 10 )]
+target_node_path = NodePath("../TargetPath/Target")
+target_path_path = NodePath("../TargetPath")
+player_node_path = NodePath("../Player")
+
+[node name="PickupSpawner" parent="." instance=ExtResource( 8 )]
+min_spawn_seconds = 2.0
+max_spawn_seconds = 5.0
+target_node_path = NodePath("../TargetPath/Target")
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8443.83, -9628.23 )
+
+[node name="TrafficPaths" type="Node2D" parent="."]
+
+[node name="TrafficPath2D2" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D3" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 2 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D4" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 3 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D5" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 4 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D6" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 6 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D7" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 7 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D8" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 8 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D9" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 9 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D10" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 10 )
+script = ExtResource( 4 )
+
+[node name="TargetPath" type="Path2D" parent="."]
+position = Vector2( -64.0725, 160.181 )
+curve = SubResource( 11 )
+
+[node name="Target" parent="TargetPath" instance=ExtResource( 2 )]
+position = Vector2( 262.45, 727.082 )
+rotation = 1.5708
+path_path = NodePath("..")
 
 [node name="OutsideCollider" type="StaticBody2D" parent="."]
 

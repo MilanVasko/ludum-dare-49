@@ -20,6 +20,7 @@ var traction_slow: float = 0.7
 var acceleration := Vector2.ZERO
 var velocity := Vector2.ZERO
 var steer_direction := 0.0
+var desired_lookat_position = null
 
 signal car_collided
 signal got_shot
@@ -91,4 +92,9 @@ func calculate_steering(delta: float) -> void:
 		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction * delta)
 	elif d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
-	rotation = new_heading.angle()
+
+	if desired_lookat_position != null:
+		look_at(desired_lookat_position)
+		desired_lookat_position = null
+	else:
+		rotation = new_heading.angle()

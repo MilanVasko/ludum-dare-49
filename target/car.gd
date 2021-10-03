@@ -6,6 +6,7 @@ export(float) var speed: float
 onready var path: Path2D = get_node(path_path)
 var offset: float = 0.0
 var lookahead: float = 4.0
+var desired_offset = null
 
 func _on_area_wifi_zone_entered(_area_id: int, area: Area2D, _area_shape: int, _local_shape: int) -> void:
 	if area != null && area.has_method("_on_wifi_zone_entered"):
@@ -26,7 +27,11 @@ func _physics_process(delta: float) -> void:
 	if path_length == 0:
 		return
 
-	offset = fmod(offset + speed * delta, path_length)
+	if desired_offset != null:
+		offset = desired_offset
+		desired_offset = null
+	else:
+		offset = fmod(offset + speed * delta, path_length)
 
 	var pos := c.interpolate_baked(offset, true)
 	var ahead := offset + lookahead
