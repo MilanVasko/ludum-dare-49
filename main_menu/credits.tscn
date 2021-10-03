@@ -31,8 +31,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panel/ScrollContainer"]
-margin_right = 492.0
-margin_bottom = 220.0
+margin_right = 940.0
+margin_bottom = 460.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "This game was made by Milan Vasko in 48 hours for the Ludum Dare 49 competition."

@@ -47,7 +47,7 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 138.823, 0 )
 current = true
-zoom = Vector2( 5, 5 )
+zoom = Vector2( 3, 3 )
 script = ExtResource( 6 )
 length_divisor = 1000.0
 zoom_change_speed = 10.0
