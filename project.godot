@@ -8,21 +8,16 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "AudioStreamPlayer",
-"class": "MusicPlayer",
-"language": "GDScript",
-"path": "res://ingame/music/music_player.gd"
-} ]
-_global_script_class_icons={
-"MusicPlayer": ""
-}
-
 [application]
 
 config/name="Ludum-dare- 49"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SceneSwitcher="*res://scene_switcher/scene_switcher.tscn"
+MusicPlayer="*res://music_player/music_player.tscn"
 
 [input]
 

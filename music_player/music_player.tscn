@@ -1,17 +1,19 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ingame/music/intro.ogg" type="AudioStream" id=1]
-[ext_resource path="res://ingame/music/music_player.gd" type="Script" id=2]
+[ext_resource path="res://music_player/music_player.gd" type="Script" id=2]
 [ext_resource path="res://ingame/music/variation3.ogg" type="AudioStream" id=3]
 [ext_resource path="res://ingame/music/variation1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://ingame/music/variation2.ogg" type="AudioStream" id=5]
 
-[node name="MusicPlayer" type="AudioStreamPlayer"]
+[node name="MusicPlayer" type="AudioStreamPlayer" groups=[
+"scene_switch_subscriber",
+]]
 autoplay = true
 script = ExtResource( 2 )
-intro = ExtResource( 1 )
-variation1 = ExtResource( 4 )
-variation2 = ExtResource( 5 )
-variation3 = ExtResource( 3 )
+ingame_intro = ExtResource( 1 )
+ingame_variation1 = ExtResource( 4 )
+ingame_variation2 = ExtResource( 5 )
+ingame_variation3 = ExtResource( 3 )
 
 [connection signal="finished" from="." to="." method="_on_music_finished"]
