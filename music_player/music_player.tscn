@@ -10,6 +10,7 @@
 "scene_switch_subscriber",
 ]]
 pause_mode = 2
+bus = "Music"
 script = ExtResource( 2 )
 ingame_intro = ExtResource( 1 )
 ingame_variation1 = ExtResource( 4 )
