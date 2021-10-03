@@ -18,11 +18,23 @@ var bumps = [
 export(float) var player_impact_coefficient: float
 onready var explosion_player: AudioStreamPlayer2D = $ExplosionPlayer2D
 onready var bump_player: AudioStreamPlayer2D = $BumpPlayer2D
+onready var honk_player: AudioStreamPlayer2D = $HonkPlayer2D
+
+var current_honk_cooldown := 0.0
+var min_honk_cooldown := 5.0
+var max_honk_cooldown := 50.0
 
 signal blown_up
 
 func _ready():
 	randomize()
+	current_honk_cooldown = rand_range(0.0, max_honk_cooldown)
+
+func _process(delta: float) -> void:
+	current_honk_cooldown -= delta
+	if current_honk_cooldown <= 0.0:
+		current_honk_cooldown = rand_range(min_honk_cooldown, max_honk_cooldown)
+		honk_player.play()
 
 func _on_target_collided(collision: KinematicCollision2D) -> void:
 	blow_up(collision)
@@ -37,6 +49,9 @@ func blow_up(collision: KinematicCollision2D) -> void:
 	$Sprite.texture = preload("res://traffic/car_damaged.png")
 	explosion_player.stream = explosions[randi() % explosions.size()]
 	explosion_player.play()
+	set_process(false)
+	if randf() > 0.5:
+		honk_player.play()
 
 func _on_body_entered(body: Node) -> void:
 	bump_player.stream = bumps[randi() % bumps.size()]
