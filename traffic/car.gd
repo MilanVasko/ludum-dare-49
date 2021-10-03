@@ -8,8 +8,16 @@ var explosions = [
 	preload("res://traffic/sounds/explosion4.wav")
 ]
 
+var bumps = [
+	preload("res://traffic/sounds/bump1.wav"),
+	preload("res://traffic/sounds/bump2.wav"),
+	preload("res://traffic/sounds/bump3.wav"),
+	preload("res://traffic/sounds/bump4.wav")
+]
+
 export(float) var player_impact_coefficient: float
 onready var explosion_player: AudioStreamPlayer2D = $ExplosionPlayer2D
+onready var bump_player: AudioStreamPlayer2D = $BumpPlayer2D
 
 signal blown_up
 
@@ -31,5 +39,8 @@ func blow_up(collision: KinematicCollision2D) -> void:
 	explosion_player.play()
 
 func _on_body_entered(body: Node) -> void:
+	bump_player.stream = bumps[randi() % bumps.size()]
+	bump_player.play()
+
 	if body.has_method("collided_with_blown_up_traffic_car"):
 		body.collided_with_blown_up_traffic_car(self)

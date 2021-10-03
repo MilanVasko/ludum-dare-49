@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 onready var driver := $Driver
 onready var camera := $Camera2D
+onready var audio_player := $AudioStreamPlayer2D
 
 var wheel_base: float = 200
 var steering_angle: float = 30
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 	camera.adjust_zoom_by_velocity(velocity)
+	adjust_sound_by_velocity(velocity)
 
 	var collided := false
 	for index in get_slide_count():
@@ -45,6 +47,11 @@ func _physics_process(delta: float) -> void:
 			collider._on_player_collided(collision)
 	if collided:
 		emit_signal("car_collided")
+
+func adjust_sound_by_velocity(v: Vector2) -> void:
+	var base_volume = -60.0
+	var volume = base_volume + (v.length() / (engine_power / 3.5)) * 60
+	audio_player.volume_db = volume
 
 # this is needed because Kinematic body apparently can't detect RigidBody2D,
 # so RigidBody2D needs to notify us (after the traffic car is blown up)
