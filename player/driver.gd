@@ -13,7 +13,7 @@ signal immortality_ended
 
 func _ready() -> void:
 	set_health(start_health)
-	immortality_seconds_remaining = -1.0
+	immortality_seconds_remaining = seconds_to_be_immortal
 
 func _process(delta: float) -> void:
 	if immortality_seconds_remaining > 0.0:
