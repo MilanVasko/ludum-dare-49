@@ -1,5 +1,7 @@
 extends Path2D
 
+class_name TrafficPath2D
+
 export(int) var min_spawn_distance
 export(int) var max_spawn_distance
 

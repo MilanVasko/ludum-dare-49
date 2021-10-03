@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Path2D",
+"class": "TrafficPath2D",
+"language": "GDScript",
+"path": "res://traffic/path.gd"
+} ]
+_global_script_class_icons={
+"TrafficPath2D": ""
+}
+
 [application]
 
 config/name="Ludum-dare- 49"

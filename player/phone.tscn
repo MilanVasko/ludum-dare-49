@@ -7,8 +7,8 @@ radius = 20.2011
 
 [node name="Phone" type="Area2D"]
 script = ExtResource( 1 )
-download_time_seconds = 60.0
-seconds_to_abort = 10.0
+download_time_seconds = 200.0
+seconds_to_abort = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

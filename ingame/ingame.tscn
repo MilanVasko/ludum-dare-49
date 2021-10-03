@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/car.tscn" type="PackedScene" id=2]
@@ -6,19 +6,25 @@
 [ext_resource path="res://traffic/path.gd" type="Script" id=4]
 [ext_resource path="res://ingame/pause.gd" type="Script" id=5]
 [ext_resource path="res://ingame_gui/ingame_gui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ingame/map/map.png" type="Texture" id=7]
 [ext_resource path="res://pickup_spawner/pickup_spawner.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 2086.58, -2378.09, 0, 0, 0, 0, 1934.51, -596.869, 0, 0, 0, 0, 2448.87, 738.44, 0, 0, 0, 0, 141.472, 726.454, 0, 0, 0, 0, 135.479, -1143.43, 0, 0, 0, 0, 309.283, -2497.9, 0, 0, 0, 0, 2086.58, -2378.09 )
+"points": PoolVector2Array( 0, 0, 0, 0, -7837.84, -16718.4, 0, 0, 0, 0, -257.762, 25.083, 0, 0, 0, 0, 9314.59, 689.581, 0, 0, 0, 0, 20539.2, 1731.23, 0, 0, 0, 0, 32112.9, 1282.24, 0, 0, 0, 0, 31951.2, -5344.78, 0, 0, 0, 0, 20654.8, -13911.4, 0, 0, 0, 0, 21067.8, -19281.3, 0, 0, 0, 0, 8675.85, -25392.7, 0, 0, 0, 0, -7837.84, -16718.4 )
 }
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -3806.7, -2280.73, 0, 0, 0, 0, 3736.63, -2026.75, 0, 0, 0, 0, 3800.13, 3014.84, 0, 0, 0, 0, -3400.33, 2722.76, 0, 0, 0, 0, -3806.7, -2280.73 )
+"points": PoolVector2Array( 0, 0, 0, 0, 8700.89, -10560.5, 0, 0, 0, 0, -3878.64, -16166.8, 0, 0, 0, 0, -5528.35, -6023.41, 0, 0, 0, 0, -11700.6, -6877.7, 0, 0, 0, 0, -12554.9, 8051.14, 0, 0, 0, 0, -11401.6, 8820.01, 0, 0, 0, 0, -2559.67, 8841.37, 0, 0, 0, 0, -1449.08, 3523.37, 0, 0, 0, 0, 8076.33, 3801.01, 0, 0, 0, 0, 8097.69, 10208.2, 0, 0, 0, 0, 19780.2, 9460.73, 0, 0, 0, 0, 19502.6, 3181.65, 0, 0, 0, 0, 7777.33, 4164.09, 0, 0, 0, 0, 8546.2, 10251, 0, 0, 0, 0, -3136.32, 9204.45, 0, 0, 0, 0, -851.074, 3331.15, 0, 0, 0, 0, 1348.74, -2392.64, 0, 0, 0, 0, -5549.71, -5809.83, 0, 0, 0, 0, -6596.22, 3181.65, 0, 0, 0, 0, -12298.7, 7816.21, 0, 0, 0, 0, -12234.6, -6984.49, 0, 0, 0, 0, -18919.5, -8180.51, 0, 0, 0, 0, -3926.54, -15890.5, 0, 0, 0, 0, -5207.99, -6322.41, 0, 0, 0, 0, 1092.45, -2371.29, 0, 0, 0, 0, 8054.97, -9376.52, 0, 0, 0, 0, 8503.48, -5105.04, 0, 0, 0, 0, 7563.75, 3608.8, 0, 0, 0, 0, 19417.1, 3459.29, 0, 0, 0, 0, 8054.97, -4934.18, 0, 0, 0, 0, 8700.89, -10560.5 )
 }
 
 [node name="Ingame" type="Node2D"]
+
+[node name="map" type="Sprite" parent="."]
+position = Vector2( -471.653, -3013.9 )
+scale = Vector2( 5.96354, 5.96354 )
+texture = ExtResource( 7 )
 
 [node name="Pause" type="Node2D" parent="." groups=[
 "download_state_subscriber",
@@ -32,63 +38,71 @@ min_spawn_seconds = 2.0
 max_spawn_seconds = 5.0
 target_node_path = NodePath("../TargetPath/Target")
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8443.83, -9628.23 )
+rotation = -1.35451
+
+[node name="TrafficPaths" type="Node2D" parent="."]
+
+[node name="TrafficPath" type="Path2D" parent="TrafficPaths"]
+position = Vector2( -12250, 8825.83 )
+curve = SubResource( 1 )
+script = ExtResource( 4 )
+min_spawn_distance = 500
+max_spawn_distance = 5000
+
 [node name="TargetPath" type="Path2D" parent="."]
 position = Vector2( -64.0725, 160.181 )
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="Target" parent="TargetPath" instance=ExtResource( 2 )]
 position = Vector2( 262.45, 727.082 )
 rotation = 1.5708
 path_path = NodePath("..")
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -327.759, 246.942 )
-rotation = -1.35451
+[node name="Buildings" type="Node2D" parent="."]
 
-[node name="Building" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1088.18, -144.741 )
+[node name="Building" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 1016.83, -415.88 )
+rotation = -0.0658763
 
-[node name="Building2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1175.33, -1479.86 )
+[node name="OutsideCollider" type="StaticBody2D" parent="."]
 
-[node name="Building8" parent="." instance=ExtResource( 3 )]
-position = Vector2( -2496.05, -1454.46 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OutsideCollider"]
+position = Vector2( -471.653, -3013.9 )
+scale = Vector2( 5.96354, 5.96354 )
+build_mode = 1
+polygon = PoolVector2Array( -469, -2340.1, 1597, -1297.6, 1622, -1247, 1624.5, -1199, 1564.4, -368.4, 3425, 1017.2, 3458, 1061, 3497.4, 2179, 3464.5, 2236, 3367.3, 2273, 1444, 2337.3, -440.9, 2168, -2005, 2073.4, -2072, 2025.1, -3339, -754.8, -3335.3, -846, -3275.4, -906, -541, -2348 )
 
-[node name="Building9" parent="." instance=ExtResource( 3 )]
-position = Vector2( -2477, -3657.77 )
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -17617.8, -8195.05, -6157.6, -6945.21, -4450.23, -15222 )
 
-[node name="Building10" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1099.13, -3632.38 )
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -18733.7, -7030.67, -12519.2, -6343.53, -12836.4, 5964.59 )
 
-[node name="Building11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1135.93, -3632.38 )
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -11257.5, -6220.97, -6317.54, -5674.91, -7237.61, 2868.28, -11635.1, 7176.67 )
 
-[node name="Building12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2697.93, -3626.03 )
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -10818.1, 8150.92, -6386.05, 3807.79, -2017.52, 4061.77, -3414.44, 8582.69 )
 
-[node name="Building13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2742.38, -1333.82 )
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -2106.42, 8696.98, -696.803, 4112.57, 7278.3, 4506.25, 7583.08, 9560.53 )
 
-[node name="Building3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1084.95, -1334.6 )
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -5933.36, 2532.26, -1600.03, 2774.58, 438.345, -1786.82, -5106.61, -5136.6 )
 
-[node name="Building4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1160.39, 121.228 )
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -4883.4, -6541.34, 1139.39, -2889.22, 7461.2, -10150.8, -3132.09, -15426 )
 
-[node name="Building5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 7.32361, 1994.59 )
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( -184.77, 2834.57, 1822.83, -1693.21, 7760.2, -8420.8, 7204.9, 3176.29 )
 
-[node name="Building7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1256.73, 1994.59 )
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( 8892.31, 9568.65, 8587.88, 4488.36, 18900.7, 4260.03, 19033.9, 9245.19 )
 
-[node name="Building6" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1153.46, 1359.12 )
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 2 )
-script = ExtResource( 4 )
-min_spawn_distance = 500
-max_spawn_distance = 5000
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="OutsideCollider"]
+polygon = PoolVector2Array( 8778.15, -3617.27, 8587.88, 3213.53, 17625.8, 2966.18 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
