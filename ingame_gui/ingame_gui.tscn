@@ -278,6 +278,9 @@ margin_bottom = 0.00723648
 text = "100"
 valign = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "GUI"
+
 [connection signal="pressed" from="DownloadFailed/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="DownloadFailed/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="DownloadSucceeded/Retry" to="." method="_on_retry_pressed"]

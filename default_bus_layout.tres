@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=2]
+[gd_resource type="AudioBusLayout" load_steps=4 format=2]
 
 [sub_resource type="AudioEffectCompressor" id=1]
 resource_name = "Compressor"
@@ -6,6 +6,10 @@ resource_name = "Compressor"
 [sub_resource type="AudioEffectAmplify" id=2]
 resource_name = "Amplify"
 volume_db = 9.45
+
+[sub_resource type="AudioEffectAmplify" id=3]
+resource_name = "Amplify"
+volume_db = 4.73
 
 [resource]
 bus/1/name = "Explosions"
@@ -30,3 +34,11 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = "Master"
+bus/4/name = "GUI"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 6.02
+bus/4/send = "Master"
+bus/4/effect/0/effect = SubResource( 3 )
+bus/4/effect/0/enabled = true
