@@ -17,7 +17,6 @@ onready var light = $Light2D
 onready var shot_player = $ShotPlayer2D
 
 func _ready() -> void:
-	randomize()
 	bullet_path.visible = false
 	light.visible = false
 

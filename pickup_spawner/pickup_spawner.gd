@@ -14,7 +14,6 @@ var pickup_scenes := [
 var current_spawn_seconds: float
 
 func _ready():
-	randomize()
 	current_spawn_seconds = rand_range(min_spawn_seconds, max_spawn_seconds)
 
 func _process(delta: float) -> void:

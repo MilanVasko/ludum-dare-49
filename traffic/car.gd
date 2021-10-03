@@ -27,7 +27,6 @@ var max_honk_cooldown := 50.0
 signal blown_up
 
 func _ready():
-	randomize()
 	current_honk_cooldown = rand_range(0.0, max_honk_cooldown)
 
 func _process(delta: float) -> void:

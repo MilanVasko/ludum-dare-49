@@ -7,7 +7,6 @@ export(AudioStream) var ingame_variation2: AudioStream
 export(AudioStream) var ingame_variation3: AudioStream
 
 func _ready():
-	randomize()
 	handle_scene(get_tree().current_scene.name)
 
 func _on_scene_switched() -> void:

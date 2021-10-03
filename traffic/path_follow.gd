@@ -5,7 +5,6 @@ export(float) var max_v_offset: float
 export(float) var speed: float
 
 func _ready():
-	randomize()
 	v_offset = rand_range(min_v_offset, max_v_offset)
 
 func _physics_process(delta: float) -> void:

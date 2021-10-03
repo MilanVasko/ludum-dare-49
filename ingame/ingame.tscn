@@ -142,8 +142,280 @@ path_path = NodePath("..")
 [node name="Buildings" type="Node2D" parent="."]
 
 [node name="Building" parent="Buildings" instance=ExtResource( 3 )]
-position = Vector2( 1016.83, -415.88 )
-rotation = -0.0658763
+position = Vector2( -710.134, -1441.63 )
+rotation = 0.469701
+
+[node name="Building2" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -1511.04, 224.253 )
+rotation = 0.411498
+
+[node name="Building3" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -4906.87, 1729.95 )
+rotation = 0.0668065
+
+[node name="Building4" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -4736.01, -181.539 )
+rotation = 0.0668065
+
+[node name="Building5" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -4575.83, -2018.28 )
+rotation = 0.0985684
+
+[node name="Building6" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -2600.27, -2434.75 )
+rotation = 0.474172
+
+[node name="Building7" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 857.821, -4214.65 )
+rotation = 0.590639
+
+[node name="Building8" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 2519.06, -6045.4 )
+rotation = 0.714434
+
+[node name="Building9" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 4027.73, -7943.96 )
+rotation = 0.714434
+
+[node name="Building10" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 3773.46, -10690.1 )
+rotation = 0.535182
+
+[node name="Building11" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 1925.76, -11639.4 )
+rotation = 0.535182
+
+[node name="Building12" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 111.957, -12639.5 )
+rotation = 0.438044
+
+[node name="Building13" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -2057.82, -13673.5 )
+rotation = 0.438044
+
+[node name="Building14" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -2735.88, -11436 )
+rotation = 0.183586
+
+[node name="Building15" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -3108.81, -9435.69 )
+rotation = 0.183586
+
+[node name="Building16" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -3464.79, -7248.96 )
+rotation = 0.183586
+
+[node name="Building17" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 230.617, -9079.71 )
+rotation = -0.264838
+
+[node name="Building18" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -7010.16, -8129.36 )
+rotation = 0.138408
+
+[node name="Building19" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -6512.35, -10550.5 )
+rotation = 0.138408
+
+[node name="Building20" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -9906.46, -8468.77 )
+rotation = 0.138408
+
+[node name="Building21" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -13640, -8898.69 )
+rotation = 0.138408
+
+[node name="Building22" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -11467.8, -10414.7 )
+rotation = -0.445176
+
+[node name="Building23" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -9024, -11591.3 )
+rotation = -0.445176
+
+[node name="Building24" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -6602.86, -12903.7 )
+rotation = -0.445176
+
+[node name="Building25" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -10268.5, -5097.28 )
+rotation = 0.0792094
+
+[node name="Building26" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -7756.86, -4780.49 )
+rotation = 0.0792094
+
+[node name="Building27" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -10426.9, -2676.15 )
+rotation = -0.0236962
+
+[node name="Building28" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -7824.75, -2585.64 )
+rotation = -0.0236962
+
+[node name="Building29" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -10426.9, -390.776 )
+rotation = -0.0236962
+
+[node name="Building30" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -8096.28, -390.776 )
+rotation = -0.0236962
+
+[node name="Building31" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -10449.5, 1804.08 )
+rotation = -0.0236962
+
+[node name="Building32" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -8232.04, 1871.97 )
+rotation = -0.0236962
+
+[node name="Building33" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -10155.4, 3931.06 )
+rotation = -0.984565
+
+[node name="Building34" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -13888.9, 966.869 )
+rotation = -0.262099
+
+[node name="Building35" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -16536.3, -5753.47 )
+rotation = 0.0618756
+
+[node name="Building36" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -13685.2, -5346.18 )
+rotation = 0.0133609
+
+[node name="Building37" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -13662.6, -3400.22 )
+rotation = -0.0228164
+
+[node name="Building38" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -15970.6, -3739.63 )
+rotation = -0.394695
+
+[node name="Building39" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -14748.7, -1273.24 )
+rotation = -0.394695
+
+[node name="Building40" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -4272.24, 7483.57 )
+rotation = 0.0795601
+
+[node name="Building41" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -6150.31, 7347.8 )
+rotation = 0.0795601
+
+[node name="Building42" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -8186.78, 7302.55 )
+rotation = 0.0795601
+
+[node name="Building43" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -5788.27, 5085.06 )
+rotation = 0.0795601
+
+[node name="Building44" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -3593.42, 5062.43 )
+rotation = 0.0795601
+
+[node name="Building45" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 253.245, 5266.08 )
+rotation = 0.0795601
+
+[node name="Building46" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 2380.22, 5379.22 )
+rotation = 0.0109209
+
+[node name="Building47" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 4597.71, 5560.24 )
+rotation = 0.0109209
+
+[node name="Building48" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 6317.39, 8252.9 )
+rotation = 0.0109209
+
+[node name="Building49" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 4213.04, 8139.76 )
+rotation = 0.0109209
+
+[node name="Building50" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 1859.79, 7868.23 )
+rotation = 0.0109209
+
+[node name="Building51" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -312.441, 7664.59 )
+rotation = 0.0109209
+
+[node name="Building52" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 1746.65, 1849.34 )
+rotation = 0.0109209
+
+[node name="Building53" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 4032.02, 1894.6 )
+rotation = 0.0109209
+
+[node name="Building54" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 6136.37, 2052.99 )
+rotation = 0.0109209
+
+[node name="Building55" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 5977.98, -119.244 )
+rotation = 0.0109209
+
+[node name="Building56" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 6113.75, -2200.97 )
+rotation = 0.0109209
+
+[node name="Building57" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 6362.65, -4486.34 )
+rotation = 0.0109209
+
+[node name="Building58" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 3353.2, -1092.22 )
+rotation = 0.462073
+
+[node name="Building59" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 9847.27, 2052.99 )
+rotation = 0.00893489
+
+[node name="Building60" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 9824.64, -730.185 )
+rotation = -0.0392554
+
+[node name="Building61" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 14191.7, 2075.62 )
+rotation = -0.0392554
+
+[node name="Building62" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 12087.4, 2098.24 )
+rotation = -0.0392554
+
+[node name="Building63" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 9847.27, 5741.26 )
+rotation = -0.0392554
+
+[node name="Building64" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 12426.8, 5582.86 )
+rotation = -0.0392554
+
+[node name="Building65" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 10141.4, 8298.15 )
+rotation = -0.0392554
+
+[node name="Building66" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 12766.2, 8185.02 )
+rotation = -0.0392554
+
+[node name="Building67" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 17766.9, 8117.14 )
+rotation = -0.0392554
+
+[node name="Building68" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 17789.5, 5514.98 )
+rotation = -0.0392554
+
+[node name="Building69" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 15277.8, 6782.12 )
+rotation = -0.0392554
 
 [node name="OutsideCollider" type="StaticBody2D" parent="."]
 

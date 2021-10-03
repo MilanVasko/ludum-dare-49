@@ -6,7 +6,6 @@ var textures = [
 ]
 
 func _ready():
-	randomize()
 	$Sprite.texture = textures[randi() % textures.size()]
 
 func _on_body_entered(body: Node) -> void:
