@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shoot6.wav-ce15c7a3e438826ab43a1cab2f1784cf.sample"
+
+[deps]
+
+source_file="res://target/sounds/shoot6.wav"
+dest_files=[ "res://.import/shoot6.wav-ce15c7a3e438826ab43a1cab2f1784cf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

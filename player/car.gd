@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 
 		if collider != null && collider.has_method("_on_player_collided"):
 			collider._on_player_collided(collision)
-		print(collider)
 	if collided:
 		emit_signal("car_collided")
 

@@ -41,6 +41,10 @@ texture_scale = 1.5
 color = Color( 1, 1, 0, 1 )
 shadow_enabled = true
 
+[node name="ShotPlayer2D" type="AudioStreamPlayer2D" parent="Gun"]
+max_distance = 10000.0
+bus = "Gunshots"
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
