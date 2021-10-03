@@ -43,12 +43,16 @@ func _physics_process(delta: float) -> void:
 
 		if collider != null && collider.has_method("_on_player_collided"):
 			collider._on_player_collided(collision)
+		print(collider)
 	if collided:
 		emit_signal("car_collided")
 
 # this is needed because Kinematic body apparently can't detect RigidBody2D,
 # so RigidBody2D needs to notify us (after the traffic car is blown up)
 func collided_with_blown_up_traffic_car(_traffic_car: RigidBody2D) -> void:
+	emit_signal("car_collided")
+
+func collided_with_rock(_rock: RigidBody2D) -> void:
 	emit_signal("car_collided")
 
 func do_get_shot() -> void:

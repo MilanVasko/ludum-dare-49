@@ -7,7 +7,8 @@ export(NodePath) var target_node_path: NodePath
 onready var target_node: Node2D = get_node(target_node_path)
 
 var pickup_scenes := [
-	preload("res://pickups/health/health.tscn")
+	preload("res://pickups/health/health.tscn"),
+	preload("res://pickups/rock/rock.tscn")
 ]
 
 var current_spawn_seconds: float
