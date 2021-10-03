@@ -1,9 +1,34 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://target/car.png" type="Texture" id=1]
+[ext_resource path="res://target/satellite.png" type="Texture" id=1]
 [ext_resource path="res://target/car.gd" type="Script" id=2]
 [ext_resource path="res://target/wifi_zone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://target/shooter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://target/van_background.png" type="Texture" id=5]
+[ext_resource path="res://target/van_stripes.png" type="Texture" id=6]
+[ext_resource path="res://target/van_colors.png" type="Texture" id=7]
+[ext_resource path="res://target/van_outline.png" type="Texture" id=8]
+
+[sub_resource type="StreamTexture" id=2]
+flags = 5
+load_path = "res://.import/car.png-596c90713082b54468d5ddb3662d66c4.stex"
+
+[sub_resource type="Animation" id=3]
+resource_name = "SatelliteRotation"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Satellite:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 89.9999, -89.9999, 89.9999 ]
+}
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 126.375
@@ -16,19 +41,59 @@ script = ExtResource( 2 )
 speed = 2000.0
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 rotation = 1.57079
+texture = SubResource( 2 )
+
+[node name="Sprites" type="Node2D" parent="."]
+position = Vector2( -22.653, 0 )
+rotation = 1.57079
+scale = Vector2( 1.15437, 1.15437 )
+
+[node name="Background" type="Sprite" parent="Sprites"]
+modulate = Color( 0.596078, 0.596078, 0.596078, 1 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
+[node name="Stripes" type="Sprite" parent="Sprites"]
+modulate = Color( 0.811765, 0.811765, 0.811765, 1 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 6 )
+
+[node name="Colors" type="Sprite" parent="Sprites"]
+texture = ExtResource( 7 )
+
+[node name="Outline" type="Sprite" parent="Sprites"]
+texture = ExtResource( 8 )
+
+[node name="Satellite" type="Node2D" parent="Sprites"]
+position = Vector2( -0.000297546, 130.807 )
+rotation = -0.400522
+scale = Vector2( 1, 1 )
+
+[node name="Satellite" type="Sprite" parent="Sprites/Satellite"]
+modulate = Color( 0.92549, 0.92549, 0.92549, 1 )
+position = Vector2( -6.73476e-05, 30.3195 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
+autoplay = "SatelliteRotation"
+anims/SatelliteRotation = SubResource( 3 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -22, 0 )
 rotation = 1.57079
 shape = SubResource( 1 )
 
 [node name="Shooter" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 1.88776, 81.1732 )
 
 [node name="WifiZone" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [connection signal="area_shape_entered" from="WifiZone" to="." method="_on_area_wifi_zone_entered"]
 [connection signal="area_shape_exited" from="WifiZone" to="." method="_on_area_wifi_zone_exited"]
