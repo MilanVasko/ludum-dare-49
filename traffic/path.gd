@@ -2,8 +2,8 @@ extends Path2D
 
 class_name TrafficPath2D
 
-export(int) var min_spawn_distance
-export(int) var max_spawn_distance
+export(int) var min_spawn_distance = 1000
+export(int) var max_spawn_distance = 10000
 
 var path_follow_scene := preload("res://traffic/path_follow.tscn")
 

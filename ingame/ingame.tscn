@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/car.tscn" type="PackedScene" id=2]
@@ -9,9 +9,54 @@
 [ext_resource path="res://ingame/map/map.png" type="Texture" id=7]
 [ext_resource path="res://pickup_spawner/pickup_spawner.tscn" type="PackedScene" id=8]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -7837.84, -16718.4, 0, 0, 0, 0, -257.762, 25.083, 0, 0, 0, 0, 9314.59, 689.581, 0, 0, 0, 0, 20539.2, 1731.23, 0, 0, 0, 0, 32112.9, 1282.24, 0, 0, 0, 0, 31951.2, -5344.78, 0, 0, 0, 0, 20654.8, -13911.4, 0, 0, 0, 0, 21067.8, -19281.3, 0, 0, 0, 0, 8675.85, -25392.7, 0, 0, 0, 0, -7837.84, -16718.4 )
+"points": PoolVector2Array( 0, 0, 0, 0, -11912.1, 7615.17, 0, 0, 0, 0, -11655, -6664.16, 0, 0, 0, 0, -5894.35, -5906.96, 0, 0, 0, 0, -6846.19, 3036.81, 0, 0, 0, 0, -11912.1, 7615.17 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -6376.32, 2920.54, 0, 0, 0, 0, -5384.32, -5719.46, 0, 0, 0, 0, 903.681, -1895.46, 0, 0, 0, 0, -1480.32, 3224.54, 0, 0, 0, 0, -6376.32, 2920.54 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -679.55, 3175.45, 0, 0, 0, 0, 1528.18, -2095.31, 0, 0, 0, 0, 8183.78, -9425.44, 0, 0, 0, 0, 7607.13, 3645.31, 0, 0, 0, 0, -679.55, 3175.45 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8508.27, 9959.15, 0, 0, 0, 0, 8187.91, 4192.65, 0, 0, 0, 0, 19315.1, 3915, 0, 0, 0, 0, 19528.7, 9660.15, 0, 0, 0, 0, 8508.27, 9959.15 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8141.7, 3626.49, 0, 0, 0, 0, 8503.22, -4288.87, 0, 0, 0, 0, 19101.4, 3493.3, 0, 0, 0, 0, 8141.7, 3626.49 )
+}
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -2557.64, 9053.24, 0, 0, 0, 0, -978.377, 3725.6, 0, 0, 0, 0, 7641, 4182.25, 0, 0, 0, 0, 7964.46, 9966.55, 0, 0, 0, 0, -2557.64, 9053.24 )
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -11620.4, 8439.16, 0, 0, 0, 0, -6537.91, 3356.66, 0, 0, 0, 0, -1527.24, 3661.97, 0, 0, 0, 0, -3143.58, 8995.91, 0, 0, 0, 0, -11620.4, 8439.16 )
+}
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -19280.5, -7402.41, 0, 0, 0, 0, -12114.7, -6719.95, 0, 0, 0, 0, -12563.7, 7378.18, 0, 0, 0, 0, -19280.5, -7402.41 )
+}
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -18852.9, -8038.65, 0, 0, 0, 0, -3918.84, -15890.4, 0, 0, 0, 0, -5842.17, -6454.73, 0, 0, 0, 0, -18852.9, -8038.65 )
+}
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -5328.67, -6250.75, 0, 0, 0, 0, -3427.96, -16003.2, 0, 0, 0, 0, 8179.9, -10278.4, 0, 0, 0, 0, 1233.29, -2471.97, 0, 0, 0, 0, -5328.67, -6250.75 )
 }
 
 [sub_resource type="Curve2D" id=2]
@@ -44,12 +89,45 @@ rotation = -1.35451
 
 [node name="TrafficPaths" type="Node2D" parent="."]
 
-[node name="TrafficPath" type="Path2D" parent="TrafficPaths"]
-position = Vector2( -12250, 8825.83 )
-curve = SubResource( 1 )
+[node name="TrafficPath2D2" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 4 )
 script = ExtResource( 4 )
-min_spawn_distance = 500
-max_spawn_distance = 5000
+
+[node name="TrafficPath2D3" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D4" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 6 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D5" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 7 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 8 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D6" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 9 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D7" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 10 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D8" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 11 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D9" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 12 )
+script = ExtResource( 4 )
+
+[node name="TrafficPath2D10" type="Path2D" parent="TrafficPaths"]
+curve = SubResource( 13 )
+script = ExtResource( 4 )
 
 [node name="TargetPath" type="Path2D" parent="."]
 position = Vector2( -64.0725, 160.181 )
