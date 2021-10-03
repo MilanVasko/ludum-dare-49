@@ -9,7 +9,7 @@
 [node name="MusicPlayer" type="AudioStreamPlayer" groups=[
 "scene_switch_subscriber",
 ]]
-autoplay = true
+pause_mode = 2
 script = ExtResource( 2 )
 ingame_intro = ExtResource( 1 )
 ingame_variation1 = ExtResource( 4 )

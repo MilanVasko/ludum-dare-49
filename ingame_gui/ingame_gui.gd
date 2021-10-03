@@ -7,12 +7,14 @@ onready var download_failed := $DownloadFailed
 onready var download_succeeded := $DownloadSucceeded
 onready var player_died := $PlayerDied
 onready var health_label := $Health/Label
+onready var pause_menu := $PauseMenu
 
 func _ready() -> void:
 	aborting_container.visible = true
 	download_failed.visible = false
 	download_succeeded.visible = false
 	player_died.visible = false
+	pause_menu.visible = false
 
 func _on_download_resumed() -> void:
 	set_download_active(true)
@@ -42,9 +44,19 @@ func _on_player_died() -> void:
 	player_died.visible = true
 	set_download_active(false)
 
+func _on_player_paused() -> void:
+	pause_menu.visible = true
+
+func _on_player_unpaused() -> void:
+	pause_menu.visible = false
+
 func _on_retry_pressed() -> void:
 	var err = get_tree().reload_current_scene()
 	assert(err == OK)
 
 func _on_player_health_changed(health: int, _full_health: int) -> void:
 	health_label.text = str(health)
+
+func _on_main_menu_pressed():
+	var err = SceneSwitcher.switch("res://main_menu/main_menu.tscn")
+	assert(err == OK)
